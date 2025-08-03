@@ -1,0 +1,214 @@
+/* Base Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Specific for login page to center content */
+body.login-page {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Login Page Styles */
+.login-container {
+    max-width: 400px;
+    width: 90%;
+    padding: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 2rem; /* text-3xl */
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.login-subtitle {
+    font-size: 1.25rem;       /* text-xl */
+    font-weight: 600;         /* font-semibold */
+    color: #374151;           /* text-gray-700 */
+    margin-bottom: 1rem;      /* mb-4 */
+}
+
+
+.login-container .form-input {
+    margin-bottom: 1rem;
+}
+.login-container .form-button {
+    margin-top: 1rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.form-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #3b82f6;
+    color: white;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.form-button:hover {
+    background-color: #2563eb;
+}
+
+/* Messages */
+.error-message {
+    color: #dc2626;
+    background-color: #fee2e2;
+    border: 1px solid #fca5a5;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.success-message {
+    color: #166534;
+    background-color: #d1fae5;
+    border: 1px solid #6ee7b7;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+/* Header */
+.header {
+    background-color: #1f2937;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.header h1 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #e5e7eb;
+}
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    margin: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Dashboard Styles */
+.title-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+.title-text h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.sub-text {
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+}
+
+.welcome-message {
+    font-size: 1.1rem;
+    color: #4b5563;
+}
+
+/* Tiles Grid for Dashboard */
+.tiles-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 10rem;
+}
+
+.tile-card {
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tile-card:hover {
+    transform: scale(1.025);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tile-icon {
+    font-size: 8rem;
+    margin-bottom: 1rem;
+}
+
+.icon-customer {
+    color: #2dd4bf;
+}
+.icon-item {
+    color: #facc15;
+}
+.icon-bill {
+    color: #6366f1;
+}
+.icon-help {
+    color: #ef4444;
+}
+
+.tile-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.tile-description {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
