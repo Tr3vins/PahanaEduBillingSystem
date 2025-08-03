@@ -41,4 +41,10 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Just forward to login page if accessed via GET
+        request.getRequestDispatcher("login.jsp").forward(request, response);
+    }
 }
