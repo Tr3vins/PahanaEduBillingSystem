@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 //DAO for Customer operations.
 
@@ -118,5 +120,59 @@ public class CustomerDAO {
             DBConnection.closeResources(conn, pstmt, null);
         }
         return success;
+    }
+
+    //Retrieves all customers from the database.
+    public List<Customer> getAllCustomers() {
+        String SQL = "SELECT * FROM customers";
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        List<Customer> customers = new ArrayList<>();
+
+        try {
+            conn = DBConnection.getConnection();
+            pstmt = conn.prepareStatement(SQL);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Customer customer = new Customer();
+                customer.setAccountNumber(rs.getString("account_number"));
+                customer.setName(rs.getString("name"));
+                customer.setAddress(rs.getString("address"));
+                customer.setTelephoneNumber(rs.getString("telephone_number"));
+                customer.setRegistrationDate(rs.getTimestamp("registration_date"));
+                customers.add(customer);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            DBConnection.closeResources(conn, pstmt, rs);
+        }
+        return customers;
+    }
+
+    //Checks if a customer account number already exists.
+    public boolean accountNumberExists(String accountNumber) {
+        String SQL = "SELECT COUNT(*) FROM customers WHERE account_number = ?";
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        boolean exists = false;
+
+        try {
+            conn = DBConnection.getConnection();
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setString(1, accountNumber);
+            rs = pstmt.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                exists = true;
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            DBConnection.closeResources(conn, pstmt, rs);
+        }
+        return exists;
     }
 }
