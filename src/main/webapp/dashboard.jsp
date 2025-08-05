@@ -17,6 +17,9 @@
 
 <div class="header">
     <h1>Pahana Edu Billing System</h1>
+    <form action="logout" method="get">
+        <button type="submit" class="logout-button">Logout</button>
+    </form>
 </div>
 
 <div class="main-content">

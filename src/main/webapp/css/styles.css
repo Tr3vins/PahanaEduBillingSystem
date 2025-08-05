@@ -212,3 +212,59 @@ body.login-page {
     font-size: 0.9rem;
     color: #6b7280;
 }
+
+/* Add Customer Button */
+.add-button {
+    background-color: #10b981;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+.add-button:hover {
+    background-color: #059669;
+}
+
+
+/* Data Table Styles */
+.table-container {
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.data-table {
+    width: 100%;
+    min-width: 100%;
+    background-color: #ffffff;
+    border-collapse: collapse;
+}
+.data-table th, .data-table td {
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+.data-table th {
+    background-color: #f3f4f6;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #4b5563;
+}
+.data-table tr:hover {
+    background-color: #f3f4f6;
+}
+
+.data-table-empty-text {
+    text-align: center;
+    color: #6b7280;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
