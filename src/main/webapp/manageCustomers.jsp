@@ -86,5 +86,144 @@
     </div>
 </div>
 
+<!-- Add/Edit Customer Modal -->
+<div id="customerModal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="modal-close-button" id="closeModalBtn">&times;</button>
+        <h2 id="modalTitle" class="modal-title"></h2>
+        <form id="customerForm" action="customer" method="post">
+            <input type="hidden" name="action" id="formAction">
+
+            <div class="form-group">
+                <label for="accountNumber" class="form-label">Account Number:</label>
+                <input type="text" id="accountNumber" name="accountNumber" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label for="name" class="form-label">Customer Name:</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address" class="form-label">Address:</label>
+                <input type="text" id="address" name="address" class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="telephoneNumber" class="form-label">Telephone Number:</label>
+                <input type="tel" id="telephoneNumber" name="telephoneNumber" class="form-input" required>
+            </div>
+
+            <button type="submit" id="submitButton" class="form-button"></button>
+        </form>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div id="deleteModal" class="modal-overlay">
+    <div class="modal-content">
+        <h2 class="modal-title">Confirm Deletion</h2>
+        <p class="text-center text-gray-700">Are you sure you want to delete the customer: <span id="deleteAccountNumber" class="font-bold"></span>?</p>
+        <form id="deleteForm" action="customer" method="post" class="modal-container">
+            <input type="hidden" name="action" value="delete">
+            <input type="hidden" name="accountNumber" id="deleteFormAccountNumber">
+            <button type="button" id="cancelDeleteBtn" class="modal-cancel-button">Cancel</button>
+            <button type="submit" class="modal-delete-button">Delete</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const addCustomerBtn = document.getElementById('addCustomerBtn');
+        const customerModal = document.getElementById('customerModal');
+        const deleteModal = document.getElementById('deleteModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+        const formAction = document.getElementById('formAction');
+        const modalTitle = document.getElementById('modalTitle');
+        const submitButton = document.getElementById('submitButton');
+        const customerForm = document.getElementById('customerForm');
+        const accountNumberInput = document.getElementById('accountNumber');
+        const nameInput = document.getElementById('name');
+        const addressInput = document.getElementById('address');
+        const telephoneInput = document.getElementById('telephoneNumber');
+        const deleteAccountNumberSpan = document.getElementById('deleteAccountNumber');
+        const deleteFormAccountNumberInput = document.getElementById('deleteFormAccountNumber');
+
+        // Function to open the modal
+        const openModal = (modal) => {
+            modal.classList.add('show');
+        };
+
+        // Function to close the modal
+        const closeModal = (modal) => {
+            modal.classList.remove('show');
+        };
+
+        // Open Add Customer Modal
+        addCustomerBtn.addEventListener('click', () => {
+            modalTitle.textContent = 'Add New Customer';
+            formAction.value = 'add';
+            submitButton.textContent = 'Add Customer';
+            customerForm.reset();
+            accountNumberInput.readOnly = false;
+            accountNumberInput.classList.remove('bg-gray-200');
+            openModal(customerModal);
+        });
+
+        // Open Edit Customer Modal
+        document.querySelectorAll('.edit-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const accountNumber = e.target.getAttribute('data-account-number');
+                const name = e.target.getAttribute('data-name');
+                const address = e.target.getAttribute('data-address');
+                const telephone = e.target.getAttribute('data-telephone');
+
+                modalTitle.textContent = 'Edit Customer';
+                formAction.value = 'update';
+                submitButton.textContent = 'Update Customer';
+
+                accountNumberInput.value = accountNumber;
+                nameInput.value = name;
+                addressInput.value = address;
+                telephoneInput.value = telephone;
+
+                // Set account number to read-only for editing
+                accountNumberInput.readOnly = true;
+                accountNumberInput.classList.add('bg-gray-200');
+                openModal(customerModal);
+            });
+        });
+
+        // Open Delete Confirmation Modal
+        document.querySelectorAll('.delete-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const accountNumber = e.target.getAttribute('data-account-number');
+                deleteAccountNumberSpan.textContent = accountNumber;
+                deleteFormAccountNumberInput.value = accountNumber;
+                openModal(deleteModal);
+            });
+        });
+
+        // Close Modals
+        closeModalBtn.addEventListener('click', () => {
+            closeModal(customerModal);
+        });
+        cancelDeleteBtn.addEventListener('click', () => {
+            closeModal(deleteModal);
+        });
+
+        // Close modals if user clicks outside
+        window.addEventListener('click', (e) => {
+            if (e.target === customerModal) {
+                closeModal(customerModal);
+            }
+            if (e.target === deleteModal) {
+                closeModal(deleteModal);
+            }
+        });
+    });
+</script>
 </body>
 </html>
