@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class DBConnection {
     // Database credentials and URL
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/pahana_edu_db?useSSL=false&serverTimezone=UTC";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/pahana_edu_db?useSSL=false";
     private static final String JDBC_USERNAME = "root"; // Replace with your MySQL username
     private static final String JDBC_PASSWORD = "pass"; // Replace with your MySQL password
 

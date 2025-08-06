@@ -29,6 +29,8 @@ public class AuthenticationFilter implements Filter {
         // Exclude specific URLs from authentication check
         boolean isLoginOrStatic = requestURI.endsWith("/login") ||
                 requestURI.endsWith("/login.jsp") ||
+                requestURI.endsWith("/register") ||
+                requestURI.endsWith("/register.jsp") ||
                 requestURI.contains("/css/") ||
                 requestURI.contains("/js/") ||
                 requestURI.contains("/images/") ||
