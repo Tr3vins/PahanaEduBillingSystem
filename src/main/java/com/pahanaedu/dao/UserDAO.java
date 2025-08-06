@@ -57,7 +57,7 @@ public class UserDAO {
             conn = DBConnection.getConnection();
             pstmt = conn.prepareStatement(SQL);
             // Hash the password before storing
-            String hashedPassword = BCrypt.hashpw(user.getPasswordHash(), BCrypt.gensalt());
+            String hashedPassword = hashPassword(user.getPasswordHash());
             pstmt.setString(1, user.getUsername());
             pstmt.setString(2, hashedPassword);
             pstmt.setString(3, user.getRole());
