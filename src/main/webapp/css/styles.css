@@ -27,17 +27,33 @@ body.login-page {
 }
 
 .login-title {
-    font-size: 2rem; /* text-3xl */
+    font-size: 2rem;
     font-weight: 700;
     color: #1F2937;
-    margin-bottom: 1.5rem; /* mb-6 */
+    margin-bottom: 1.5rem;
 }
 
 .login-subtitle {
-    font-size: 1.25rem;       /* text-xl */
-    font-weight: 600;         /* font-semibold */
-    color: #374151;           /* text-gray-700 */
-    margin-bottom: 1rem;      /* mb-4 */
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1rem;
+}
+
+.login-text {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #4B5563;
+}
+
+.login-link {
+    font-weight: 600;
+    color: #2563EB;
+}
+
+.login-link:hover {
+    color: #3B82F6;
 }
 
 
@@ -104,6 +120,13 @@ body.login-page {
 }
 
 /* Header */
+.top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
 .header {
     background-color: #1f2937;
     color: white;
@@ -111,13 +134,57 @@ body.login-page {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .header h1 {
     font-size: 1.75rem;
     font-weight: bold;
     color: #e5e7eb;
 }
+
+
+/* Logout Button */
+.logout-button {
+    background-color: #ef4444;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+.logout-button:hover {
+    background-color: #dc2626;
+}
+
+/* Nav */
+.main-nav {
+    background-color: #374151;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link:hover {
+    color: #3b82f6;
+}
+
+.nav-link i {
+    margin-right: 0.5rem;
+}
+
 
 /* Main Content Area */
 .main-content {

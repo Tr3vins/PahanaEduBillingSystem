@@ -16,12 +16,7 @@
     <c:redirect url="login.jsp"/>
 </c:if>
 
-<div class="header">
-    <h1>Pahana Edu Billing System</h1>
-    <form action="logout" method="get">
-        <button type="submit" class="logout-button">Logout</button>
-    </form>
-</div>
+<%@ include file="header.jsp" %>
 
 <div class="main-content">
     <div class="title-text">
