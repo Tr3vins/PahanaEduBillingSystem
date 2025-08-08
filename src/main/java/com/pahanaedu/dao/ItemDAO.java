@@ -126,6 +126,30 @@ public class ItemDAO {
         return success;
     }
 
+    // Updates the stock quantity of an item.
+    public boolean updateItemStock(int itemId, int quantity) {
+        String SQL = "UPDATE items SET stock_quantity = stock_quantity - ? WHERE item_id = ?";
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        boolean success = false;
+
+        try {
+            conn = DBConnection.getConnection();
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setInt(1, quantity);
+            pstmt.setInt(2, itemId);
+            int rowsAffected = pstmt.executeUpdate();
+            if (rowsAffected > 0) {
+                success = true;
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            DBConnection.closeResources(conn, pstmt, null);
+        }
+        return success;
+    }
+
     //Deletes an item from the database by its ID.
     public boolean deleteItem(int itemId) {
         String SQL = "DELETE FROM items WHERE item_id = ?";
