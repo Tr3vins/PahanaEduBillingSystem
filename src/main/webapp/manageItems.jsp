@@ -59,7 +59,7 @@
                 <tr>
                     <td><c:out value="${item.itemId}"/></td>
                     <td><c:out value="${item.itemName}"/></td>
-                    <td><c:out value="${item.unitPrice}"/></td>
+                    <td>Rs. <c:out value="${item.unitPrice}"/></td>
                     <td><c:out value="${item.stockQuantity}"/></td>
                     <td>
                         <button class="edit-button"

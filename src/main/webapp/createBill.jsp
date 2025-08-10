@@ -83,7 +83,7 @@
         </table>
       </div>
       <div class="total-display-wrapper">
-        Total: <span id="totalAmountDisplay">0.00</span>
+        Total: <span id="totalAmountDisplay">Rs. 0.00</span>
       </div>
     </div>
 
@@ -143,7 +143,7 @@
 
     // Function to update the total amount displayed
     function updateTotalAmount() {
-      totalAmountDisplay.textContent = totalAmount.toFixed(2);
+      totalAmountDisplay.textContent = 'Rs. ' + totalAmount.toFixed(2);
     }
 
     // Update the dropdown options based on stock
@@ -196,7 +196,7 @@
 
         existingQuantityCell.textContent = newQuantity;
         const newSubTotal = newQuantity * unitPrice;
-        existingRow.querySelector('.item-subtotal').textContent = newSubTotal.toFixed(2);
+        existingRow.querySelector('.item-subtotal').textContent = 'Rs. ' + newSubTotal.toFixed(2);
 
         totalAmount += quantityToAdd * unitPrice;
         // Update the hidden input for quantity
@@ -233,7 +233,7 @@
 
         const unitPriceCell = document.createElement('td');
         unitPriceCell.className = 'table-cell-padding text-left';
-        unitPriceCell.textContent = unitPrice.toFixed(2);
+        unitPriceCell.textContent = 'Rs. ' + unitPrice.toFixed(2);
         newRow.appendChild(unitPriceCell);
 
         const quantityCell = document.createElement('td');
@@ -251,7 +251,7 @@
 
         const subTotalCell = document.createElement('td');
         subTotalCell.className = 'table-cell-padding text-left item-subtotal';
-        subTotalCell.textContent = subTotal.toFixed(2);
+        subTotalCell.textContent = 'Rs. ' + subTotal.toFixed(2);
         newRow.appendChild(subTotalCell);
 
         const actionsCell = document.createElement('td');
@@ -282,7 +282,8 @@
     billItemsTableBody.addEventListener('click', (e) => {
       if (e.target.closest('.remove-item-button')) {
         const row = e.target.closest('tr');
-        const subTotalToRemove = parseFloat(row.querySelector('.item-subtotal').textContent);
+        // Remove 'Rs. ' before parsing to ensure correct calculation
+        const subTotalToRemove = parseFloat(row.querySelector('.item-subtotal').textContent.replace('Rs. ', ''));
         totalAmount -= subTotalToRemove;
 
         const itemId = row.getAttribute('data-item-id');
