@@ -367,6 +367,7 @@ body.login-page {
     position: fixed;
     inset: 0;
     background-color: rgba(75, 85, 99, 0.5);
+    backdrop-filter: blur(5px);
     overflow-y: auto;
     height: 100%;
     width: 100%;
@@ -460,4 +461,176 @@ body.login-page {
 
 .modal-delete-button:hover {
     background-color: #dc2626;
+}
+
+/* Create Bill Styles */
+.form-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+.form-item-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.item-quantity-container {
+    width: 8rem;
+}
+
+.total-display-wrapper {
+    text-align: right;
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.remove-item-button {
+    color: #ef4444;
+    width: 1rem;
+    margin-right: 0.5rem;
+    transform: scale(1);
+    transition: color 0.2s ease;
+}
+.remove-item-button:hover {
+    color: #b91c1c;
+}
+
+/* Bill Styles */
+.bill-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+}
+
+.bill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #374151;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.bill-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1f2937;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.bill-company-info {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.bill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Section titles for details */
+.bill-section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1rem;
+    border-left: 4px solid #3b82f6;
+    padding-left: 0.75rem;
+}
+
+.bill-text {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.bill-text strong {
+    color: #1f2937;
+}
+
+/* Total Amount */
+.bill-total-amount {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #e5e7eb;
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.bill-total-amount span {
+    margin-left: 1rem;
+    color: #059669; /* Green color for the total */
+}
+
+/* Footer message */
+.bill-footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #d1d5db;
+    font-size: 1rem;
+    color: #6b7280;
+}
+
+
+/* Styles for Print View */
+@media print {
+    /* Hide elements that are not needed in the printed bill */
+    .top-bar, .main-nav, .print-button-container, .main-content .error-message, .main-content .success-message {
+        display: none !important;
+    }
+
+    /* Adjust the main content for print layout */
+    .main-content {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        background-color: #fff;
+    }
+
+    /* Ensure the bill container is the full page width and has no shadow */
+    .bill-container {
+        max-width: 100%;
+        margin: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    /* Force the background color to white */
+    body {
+        background-color: #fff !important;
+    }
+
+    /* Print specific font sizes to be more legible */
+    .bill-title {
+        font-size: 2rem;
+    }
+
+    /* Make sure table prints correctly */
+    .data-table {
+        page-break-inside: auto;
+    }
+    .data-table tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
 }
