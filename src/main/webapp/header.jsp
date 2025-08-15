@@ -37,7 +37,7 @@
     <a href="bill" class="nav-link">
       <i class="fas fa-file-invoice"></i>Create Bill
     </a>
-    <a href="help" class="nav-link">
+    <a href="help.jsp" class="nav-link">
       <i class="fas fa-question-circle"></i>Help
     </a>
   </nav>

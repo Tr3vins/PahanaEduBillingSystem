@@ -43,7 +43,7 @@
             <p class="tile-description">Generate a new bill for a customer.</p>
         </a>
 
-        <a href="${pageContext.request.contextPath}/help" class="tile-card">
+        <a href="${pageContext.request.contextPath}/help.jsp" class="tile-card">
             <i class="fas fa-circle-question tile-icon icon-help"></i>
             <h3 class="tile-title">Help</h3>
             <p class="tile-description">System usage guidelines.</p>
