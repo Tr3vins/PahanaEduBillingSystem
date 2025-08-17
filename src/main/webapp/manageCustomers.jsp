@@ -106,7 +106,7 @@
 
             <div class="form-group">
                 <label for="telephoneNumber" class="form-label">Telephone Number:</label>
-                <input type="tel" id="telephoneNumber" name="telephoneNumber" class="form-input" required>
+                <input type="number" id="telephoneNumber" name="telephoneNumber" class="form-input" required>
             </div>
 
             <button type="submit" id="submitButton" class="form-button"></button>
@@ -118,7 +118,7 @@
 <div id="deleteModal" class="modal-overlay">
     <div class="modal-content">
         <h2 class="modal-title">Confirm Deletion</h2>
-        <p class="text-center text-gray-700">Are you sure you want to delete the customer: <span id="deleteAccountNumber" class="font-bold"></span>?</p>
+        <p class="text-center text-gray-100">Are you sure you want to delete the customer: <span id="deleteAccountNumber" class="font-bold"></span>?</p>
         <form id="deleteForm" action="customer" method="post" class="modal-container">
             <input type="hidden" name="action" value="delete">
             <input type="hidden" name="accountNumber" id="deleteFormAccountNumber">
@@ -163,7 +163,8 @@
             submitButton.textContent = 'Add Customer';
             customerForm.reset();
             accountNumberInput.readOnly = false;
-            accountNumberInput.classList.remove('bg-gray-200');
+            // Remove disabled styling
+            accountNumberInput.classList.remove('bg-gray-700', 'text-gray-400', 'cursor-not-allowed');
             openModal(customerModal);
         });
 
@@ -186,7 +187,8 @@
 
                 // Set account number to read-only for editing
                 accountNumberInput.readOnly = true;
-                accountNumberInput.classList.add('bg-gray-200');
+                // Add disabled styling for dark theme
+                accountNumberInput.classList.add('bg-gray-700', 'text-gray-400', 'cursor-not-allowed');
                 openModal(customerModal);
             });
         });

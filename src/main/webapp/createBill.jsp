@@ -97,7 +97,7 @@
 <div id="alertModal" class="modal-overlay">
   <div class="modal-content">
     <h2 class="modal-title text-red-500">Error</h2>
-    <p id="alertMessage" class="text-center text-gray-700 my-4"></p>
+    <p id="alertMessage" class="text-center text-gray-100 my-4"></p>
     <div class="flex justify-center">
       <button type="button" id="closeAlertBtn" class="modal-cancel-button">OK</button>
     </div>

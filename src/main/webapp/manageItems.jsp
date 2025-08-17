@@ -117,7 +117,7 @@
     <div id="deleteModal" class="modal-overlay">
         <div class="modal-content">
             <h2 class="modal-title">Confirm Deletion</h2>
-            <p class="text-center text-gray-700">Are you sure you want to delete the item: <span id="deleteItemIdSpan" class="font-bold"></span>?</p>
+            <p class="text-center text-gray-100">Are you sure you want to delete the item: <span id="deleteItemIdSpan" class="font-bold"></span>?</p>
             <form action="item" method="post" class="modal-container">
                 <input type="hidden" name="action" value="delete">
                 <input type="hidden" name="itemId" id="deleteFormItemIdInput" value="">
