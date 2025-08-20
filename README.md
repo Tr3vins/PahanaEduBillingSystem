@@ -1,6 +1,6 @@
 # Pahana Edu Billing System
 
-![Java](https://img.shields.io/badge/%E2%98%95%20Java-F89820?style=for-the-badge)
+![Java](https://img.shields.io/badge/Java-F89820?style=for-the-badge&logo=coffeescript)
 ![IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-B1428A?style=for-the-badge&logo=intellijidea)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Tomcat](https://img.shields.io/badge/Apache%20Tomcat-F8DC75?style=for-the-badge&logo=apache-tomcat&logoColor=black)
@@ -111,6 +111,7 @@ CREATE TABLE bills (
     bill_id INT AUTO_INCREMENT PRIMARY KEY,
     account_number VARCHAR(20) NOT NULL,
     bill_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    total_amount DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
     FOREIGN KEY (account_number) REFERENCES customers(account_number)
 );
 
@@ -149,10 +150,10 @@ private static final String JDBC_PASSWORD = "pass"; // Replace with your MySQL p
 3. Set the **Project SDK** to your installed `OpenJDK 24`.
 
 
-4. Next, under **Platform Settings**, select **Artifacts.**
+4. Next, under **Project Settings**, select **Artifacts.**
 
 
-5. If an artifact is not already created, click the + button, select **Web Application: Exploded > From Modules**, and choose the main project module.
+5. `If an artifact is not already created`, click the `+` button, select **Web Application: Exploded > From Modules**, and choose the main project module.
 
 
 6. The default settings should be fine, but make sure the **Output directory** is set to a valid location.
