@@ -74,7 +74,8 @@ Execute the following SQL script in your MySQL client to set up the database and
 
 ```sql
 -- Database Creation
-CREATE DATABASE IF NOT EXISTS pahana_edu_db;
+DROP DATABASE IF EXISTS pahana_edu_db;
+CREATE DATABASE pahana_edu_db;
 USE pahana_edu_db;
 
 -- 1. Users Table for Authentication
@@ -145,7 +146,7 @@ private static final String JDBC_PASSWORD = "pass"; // Replace with your MySQL p
 2. Under **Project Settings**, select **Project.**
 
 
-3. Set the **Project SDK** to your installed **OpenJDK 24.**
+3. Set the **Project SDK** to your installed `OpenJDK 24`.
 
 
 4. Next, under **Platform Settings**, select **Artifacts.**
@@ -265,3 +266,9 @@ SOFTWARE.
 ## 📧 Contact
 
 For questions or support, please contact the project maintainers at [support@pahanaedu.com](mailto:support@pahanaedu.com).
+
+---
+
+<div align="center">
+  <p>© 2025 Pahana Edu Book Shop. All rights reserved.</p>
+</div>
